@@ -1,0 +1,12 @@
+name: Secrets Test
+
+on: push
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    env:
+      PW_1: ${{ secrets.PW_1 }}
+    steps:
+      - run: echo "${PW_1}"
+      - run: echo "${PW_1:0:1} ${PW_1#?}"
